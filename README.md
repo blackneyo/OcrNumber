@@ -24,19 +24,28 @@ classes = 10개씩
 모델 만들기 2022.04.05 이동한
 CNN모델-sequential 
 
+
 레이어1 conv2D (컨볼루션 레이어)
 --필터 32, 필터크기(3,3), relu활성화함수--
+
 
 레이어2 maxpooling2d (풀링 레이어)
 --축소시킬 필터의 크기 (2,2)--
 드롭아웃 25% (떨궈내기)
 
+
 레이어3 flatten (flatten 레이어) 입력 이미지 1차원배열로 반환 -> 간단한 전처리 수행
+
 
 레이어4 Dense 은닉레이어 뉴런 256개로 구성, relu 활성화 함수 사용
 드랍아웃 50%
 
+
+
 레이어5 Dense 은닉레이어 뉴런 10개로 구성, softmax 활성화 함수 사용
+
+
+
 
 --학습 과정 설계--
 
@@ -46,6 +55,11 @@ optimizer = 최적화 계획 loss function 에 따라서 network 갱신
 Adadelta 알고리즘 구현 옵티마이저 사용/default값 (learning_rate=0.001, rho=0.95, epsilon =1e-07, name='adadelta', **kwargs)
 metrics = 평가지표 -> 검승셋과 연관, 훈련 과정을 모니터링 하는데 사용/ overfitting 이나 underfitting 되고 있는 지 여부 확인 
 '''
+
+
+
+
+
 model = Sequential()
 model.add(Conv2D(32, kernel_size=(3,3), activation='relu', input_shape=input_shape))
 model.add(Conv2D(64, (3,3), activation='relu'))
